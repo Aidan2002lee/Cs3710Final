@@ -1,0 +1,10 @@
+<h1>Editing playlist</h1>
+
+<%= render "form", playlist: @playlist %>
+
+<br>
+
+<div>
+  <%= link_to "Show this playlist", edit_account_playlist_path(@account, @playlist) %> |
+  <%= link_to "Back to playlists", account_playlists_path(@account) %>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  capacity_of_songs: 1
+  description: MyText
+  account: one
+
+two:
+  name: MyString
+  capacity_of_songs: 1
+  description: MyText
+  account: two

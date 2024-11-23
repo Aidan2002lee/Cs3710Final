@@ -10,14 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_18_201615) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_20_232326) do
   create_table "accounts", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
+    t.integer "num_of_songs_you_want"
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_accounts_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
+  create_table "playlists", force: :cascade do |t|
+    t.string "name"
+    t.integer "capacity_of_songs"
+    t.text "description"
+    t.integer "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_playlists_on_account_id"
+  end
+
+  add_foreign_key "playlists", "accounts"
 end

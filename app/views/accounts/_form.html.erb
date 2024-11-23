@@ -1,4 +1,4 @@
-<%= form_with(model: account) do |form| %>
+<%= form_with(model: @account, local: true) do |form| %>
   <% if account.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -22,8 +22,8 @@
   </div>
 
   <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+    <%= form.label :num_of_songs_you_want, style: "display: block" %>
+    <%= form.text_field :num_of_songs_you_want %>
   </div>
 
   <div>

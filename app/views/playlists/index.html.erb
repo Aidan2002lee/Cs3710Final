@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Playlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Song Capacity</th>
+      <th>Description</th>
+      <th>Actions></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @playlists.each do |playlist| %>
+      <tr>
+        <td><%= playlist.name %></td>
+        <td><%= playlist.capacity_of_songs %></td>
+        <td><%= playlist.description %></td>
+        <td><%= link_to 'Edit Playlist', edit_account_playlist_path(@account, playlist), class: "btn-btn-warning" %></td>
+        <td><%= button_to 'Delete Playlist', [@account, playlist], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to "New playlist", new_account_playlist_path(@account) %>
