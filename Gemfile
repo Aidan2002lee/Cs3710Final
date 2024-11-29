@@ -35,6 +35,10 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+gem 'rack-cors'
+gem 'active_model_serializers'
+gem 'rspotify'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
@@ -44,6 +48,8 @@ gem "bootsnap", require: false
 gem "bootstrap"
 
 gem "sassc-rails"
+
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -55,8 +61,6 @@ group :development, :test do
   # testing frameowrk for Ruby
   gem 'rspec-rails',' ~> 6.0'
   gem 'factory_bot_rails'
-  gem 'rack-cors'
-  gem 'active_model_serializers'
 end
 
 group :development do
@@ -70,9 +74,6 @@ group :development do
   # gem "spring"
 end
 
-group :production do
-  gem 'rspotify'
-end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]

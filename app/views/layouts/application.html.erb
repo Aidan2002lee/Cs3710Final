@@ -29,12 +29,12 @@
       <p class = "notice"><%= notice %></p>
       <p class = "alert"><%= alert %></p>
 
-  <% if account_signed_in? %>
-    <%= button_to "Sign Out", destroy_account_session_path, method: :delete %>
+      <% if account_signed_in? %>
+        <%= button_to "Log Out", destroy_account_session_path, method: :delete %>
   <% else %>
-    <%= link_to 'Sign In', new_account_session_path %>
-    <%= link_to 'Sign Up', new_account_registration_path %>
-  <% end %>
+      <%= link_to 'Log In', new_account_session_path %>
+      <%= link_to 'Sign Up', new_account_registration_path %>
+<% end %>
     <%= yield %>
   </body>
 </html>

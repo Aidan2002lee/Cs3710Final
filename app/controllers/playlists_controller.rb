@@ -60,6 +60,19 @@ class PlaylistsController < ApplicationController
     end
   end
 
+  def add_track
+    playlist = current_account.playlists.find(params[:playlist_id])
+    track = playlist.tracks.create(track_params)
+    if @track.save
+      format.html { redirect_to playlists_url(@playlist), notice 'Track added successfully,' }
+      format.json { render :show, :status, :created, location: @track }
+    else
+      format.html { render: :new, status: :unprocessable_entity }
+      format.json { render json: @track.errors, status: :unprocessable_entity }
+    end
+  end
+
+
   private
 
     # Use callbacks to share common path between accounts
@@ -76,5 +89,9 @@ class PlaylistsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def playlist_params
       params.require(:playlist).permit(:name, :capacity_of_songs, :description, :account_id)
+    end
+
+    def track_params
+      params.require(:track).permit(:name, :artist, :image, :preview, :spotify_id)
     end
 end

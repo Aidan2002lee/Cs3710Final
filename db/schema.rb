@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_20_232326) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_28_031514) do
   create_table "accounts", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -37,5 +37,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_20_232326) do
     t.index ["account_id"], name: "index_playlists_on_account_id"
   end
 
+  create_table "tracks", force: :cascade do |t|
+    t.string "name"
+    t.string "artist"
+    t.string "image"
+    t.string "preview"
+    t.string "spotify_id"
+    t.integer "playlist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["playlist_id"], name: "index_tracks_on_playlist_id"
+  end
+
   add_foreign_key "playlists", "accounts"
+  add_foreign_key "tracks", "playlists"
 end

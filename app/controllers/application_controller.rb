@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
     #configure_permitted_parameters
     before_action :configure_permitted_parameters, if: :devise_controller?
 
+    helper_method :current_user
+    helper_method :logged_in?
+    before_action :require_login
+
     #Protects methods in class
     protected
 
@@ -18,4 +22,5 @@ class ApplicationController < ActionController::Base
       # Redirect to the account profile
       account_path(current_account)
     end
+
 end

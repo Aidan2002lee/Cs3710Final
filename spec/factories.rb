@@ -4,6 +4,7 @@ FactoryBot.define do
         last_name {Faker::Name.last_name}
         num_of_songs_you_want {Faker::Integer.num_of_songs_you_want}
         username {Faker::String.username}
+        email {"email"}
         passowrd {"password"}
         password_confirmation {"password"}
     end
