@@ -1,10 +1,10 @@
-class CreateTracks < ActiveRecord::Migration[7.1]
+class CreateSongs < ActiveRecord::Migration[7.1]
   def change
-    create_table :tracks do |t|
-      t.string :name
+    create_table :songs do |t|
+      t.string :title
       t.string :artist
-      t.string :image
-      t.string :preview
+      t.date :release_date
+      t.boolean :explicit
       t.string :spotify_id
       t.references :playlist, null: false, foreign_key: true
 

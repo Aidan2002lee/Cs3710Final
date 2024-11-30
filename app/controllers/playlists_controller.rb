@@ -60,15 +60,15 @@ class PlaylistsController < ApplicationController
     end
   end
 
-  def add_track
+  def add_song
     playlist = current_account.playlists.find(params[:playlist_id])
-    track = playlist.tracks.create(track_params)
-    if @track.save
-      format.html { redirect_to playlists_url(@playlist), notice 'Track added successfully,' }
-      format.json { render :show, :status, :created, location: @track }
+    song = playlist.songs.create(track_params)
+    if @song.save
+      format.html { redirect_to playlists_url(@playlist), notice "Song successfully added." }
+      format.json { render :show, :status, :created, location @song }
     else
       format.html { render: :new, status: :unprocessable_entity }
-      format.json { render json: @track.errors, status: :unprocessable_entity }
+      format.json { render json: @song.errors, status: :unprocessable_entity }
     end
   end
 
@@ -91,7 +91,7 @@ class PlaylistsController < ApplicationController
       params.require(:playlist).permit(:name, :capacity_of_songs, :description, :account_id)
     end
 
-    def track_params
-      params.require(:track).permit(:name, :artist, :image, :preview, :spotify_id)
+    def song_params
+      params.require(:song).permit(:title, :artist, :release_date, :explicit, :spotify_id)
     end
 end

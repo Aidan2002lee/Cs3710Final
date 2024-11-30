@@ -49,8 +49,6 @@ gem "bootstrap"
 
 gem "sassc-rails"
 
-gem 'dotenv-rails', groups: [:development, :test]
-
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -61,6 +59,7 @@ group :development, :test do
   # testing frameowrk for Ruby
   gem 'rspec-rails',' ~> 6.0'
   gem 'factory_bot_rails'
+  gem 'dotenv-rails'
 end
 
 group :development do

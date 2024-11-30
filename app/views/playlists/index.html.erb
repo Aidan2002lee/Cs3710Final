@@ -18,6 +18,7 @@
         <td><%= playlist.name %></td>
         <td><%= playlist.capacity_of_songs %></td>
         <td><%= playlist.description %></td>
+        <td><%= button_to 'Add Song', new_playlist_song_path(@playlist, song) %></td>
         <td><%= link_to 'Edit Playlist', edit_account_playlist_path(@account, playlist), class: "btn-btn-warning" %></td>
         <td><%= button_to 'Delete Playlist', [@account, playlist], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-btn-danger" %></td>
       </tr>

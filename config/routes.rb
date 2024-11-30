@@ -18,9 +18,18 @@ Rails.application.routes.draw do
     resources :playlists
   end
 
+  resources :playlists do
+    resources :songs
+  end
+
   namespace :api do
     namespace :v1 do
       delete 'accounts/log_out:id', to: 'accounts#log_out', as: :account_log_out
+      resources :songs do
+        collection do
+          get :search
+        end
+      end
     end
   end
   
