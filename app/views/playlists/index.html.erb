@@ -8,7 +8,7 @@
       <th>Name</th>
       <th>Song Capacity</th>
       <th>Description</th>
-      <th>Actions></th>
+      <th colspan = "3">Actions></th>
     </tr>
   </thead>
 
@@ -18,7 +18,13 @@
         <td><%= playlist.name %></td>
         <td><%= playlist.capacity_of_songs %></td>
         <td><%= playlist.description %></td>
-        <td><%= button_to 'Add Song', new_playlist_song_path(@playlist, song) %></td>
+        <td><%= link_to 'Add Song', new_playlist_song_path(playlist), class: "btn btn-primary" %></td>
+        <td>
+          <!-- Iterate Over Songs In Playlist -->
+          <% playlist.songs.each do |song| %>
+            <%= button_to 'Delete Song', playlist_song_path(playlist, song), method: :delete, class: "btn-btn-danger" %>
+          <% end %>
+        </td>
         <td><%= link_to 'Edit Playlist', edit_account_playlist_path(@account, playlist), class: "btn-btn-warning" %></td>
         <td><%= button_to 'Delete Playlist', [@account, playlist], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-btn-danger" %></td>
       </tr>

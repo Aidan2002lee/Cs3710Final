@@ -1,0 +1,45 @@
+<h1>New Song</h1>
+
+<%= render "form", song: @song %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :artist, style: "display: block" %>
+    <%= form.text_field :artist %>
+  </div>
+
+  <div>
+    <%= form.label :release_date, style: "display: block" %>
+    <%= form.text_field :release_date %>
+  </div>
+
+  <div>
+    <%= form.label :explicit, style: "display: block" %>
+    <%= form.text_field :explicit %>
+  </div>
+
+  <div>
+    <%= form.label :spotify_id, style: "display: block" %>
+    <%= form.text_field :spotify_id %>
+  </div>
+
+  <div>
+    <%= form.label :genre, style: "display: block" %>
+    <%= form.text_field :genre %>
+  </div>
+
+  <div>
+    <%= form.label :language, style: "display: block" %>
+    <%= form.text_field :language %>
+  </div>
+
+<br>
+
+<div>
+  <%= link_to "Back to playlist", playlist_path %>
+</div>
+        

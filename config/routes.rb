@@ -4,12 +4,12 @@ Rails.application.routes.draw do
     registrations: 'accounts/registrations',
     sessions: 'accounts/sessions',
     passwords: 'accounts/passwords',
-    playlists: 'accounts/playlists',
+    playlists: 'accounts/playlists'
   }
 
-  resources :tracks
+  resources :songs
   devise_for :playlists, controllers: {
-    tracks: 'playlists/tracks'
+    songs: 'playlists/songs'
   }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :playlists do
-    resources :songs
+    resources :songs, only: [:new, :view, :destroy]
   end
 
   namespace :api do

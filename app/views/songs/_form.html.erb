@@ -1,0 +1,53 @@
+<%= form_with(model: [@playlist, song], local: true) do |form| %>
+    <% if song.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
+  
+        <ul>
+          <% song.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :artist, style: "display: block" %>
+    <%= form.text_field :artist %>
+  </div>
+
+  <div>
+    <%= form.label :release_date, style: "display: block" %>
+    <%= form.text_field :release_date %>
+  </div>
+
+  <div>
+    <%= form.label :explicit, style: "display: block" %>
+    <%= form.text_field :explicit %>
+  </div>
+
+  <div>
+    <%= form.label :spotify_id, style: "display: block" %>
+    <%= form.text_field :spotify_id %>
+  </div>
+
+  <div>
+    <%= form.label :genre, style: "display: block" %>
+    <%= form.text_field :genre %>
+  </div>
+
+  <div>
+    <%= form.label :language, style: "display: block" %>
+    <%= form.text_field :language %>
+  </div>
+
+  <div>
+    <%= form.submit "Save Song", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
