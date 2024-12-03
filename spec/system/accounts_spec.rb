@@ -17,6 +17,19 @@ RSpec.describe "Accounts", type: :system do
         expect(page).to have_content("Welcome! You have signed up successfully.")
       end
       # User doesn't enter all of the information given
+
+      # Test 2: Cannot have a user with the same info
+
+      it "Doesn't sign up the user have the same info" do
+        expect.error(sign up).to have_content("It looks like someone has the same info as you, sorry!")
+      end
+
+      # Test 3: When on playlist, user deletes a playlist and is redirected to playlist UI
+      it "Reduces the number of Playlists on a user's account" do
+        click_button "Delete Playlist"
+        expect(message).to have_content("Playlist Successfully Deleted.")
+        (;account_playlists_url(-1))
+      end
     end
   end 
 end
