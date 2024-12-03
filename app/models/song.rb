@@ -24,4 +24,11 @@ class Song < ApplicationRecord
     song.save
     song
   end
+
+  def self.delete_from_spotify_song(spotify_song)
+    song.destroy!(spotify_song)
+    song.save
+    song
+  end
+
 end

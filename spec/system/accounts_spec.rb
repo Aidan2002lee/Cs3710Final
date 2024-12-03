@@ -27,8 +27,11 @@ RSpec.describe "Accounts", type: :system do
       # Test 3: When on playlist, user deletes a playlist and is redirected to playlist UI
       it "Reduces the number of Playlists on a user's account" do
         click_button "Delete Playlist"
-        expect(message).to have_content("Playlist Successfully Deleted.")
-        (;account_playlists_url(-1))
+        expect{
+          delete "Playlists/#{playlist_id}"
+      }.to change(Playliist, :count).by(-1)
+
+      expect(response.body).to include("Playlist Successfully Destroyed.")
       end
     end
   end 
