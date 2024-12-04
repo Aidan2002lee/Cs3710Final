@@ -33,6 +33,12 @@ RSpec.describe "Accounts", type: :system do
 
       expect(response.body).to include("Playlist Successfully Destroyed.")
       end
+
+      # Test 4: Returns an error when Playlist has incomplete info
+      it "Produces an error of insuficcent information" do
+        click_button "Add Playlist"
+        expect.error(playlist).to have_content("Error: Category cannot be blank")
+      end
     end
   end 
 end
