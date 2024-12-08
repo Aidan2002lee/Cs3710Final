@@ -1,5 +1,7 @@
 class Song < ApplicationRecord
+  attr_accessor :song, :playlist_id, :account_id
   belongs_to :playlist
+  belongs_to :account
 
   validates :title, :artist, :release_date, :explicit, :spotify_id, :genre, :language, presence: true
 

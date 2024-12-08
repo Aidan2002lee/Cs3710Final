@@ -1,4 +1,5 @@
 class Playlist < ApplicationRecord
+  attr_accessor :playlist, :account_id
   has_many :songs, dependent: :destroy
   belongs_to :account
   validates :description, :name, presence: true, uniqueness: true

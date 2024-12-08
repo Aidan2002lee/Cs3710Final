@@ -1,4 +1,4 @@
-<%= form_with(model: [@playlist, song], local: true) do |form| %>
+<%= form_with(model: [@account, @playlist, Song.new], local: true) do |form| %>
     <% if song.errors.any? %>
       <div style="color: red">
         <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>

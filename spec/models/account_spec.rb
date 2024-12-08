@@ -12,6 +12,7 @@ RSpec.describe Account, type: :model do
     it 'returns a number that is greater than 1' do
       num_of_songs_you_want = numericality {only_integer greater_than_or_equal_to 1}
     end
+  end
   context 'holds infinite number of playlists' do
     it 'returns a new playlist' do
       link "New Playlist"

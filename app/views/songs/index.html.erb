@@ -1,0 +1,33 @@
+<p style= "color: green".<%= notice %></p>
+
+<h1>Song</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Release Date</th>
+            <th>Spotify ID</th>
+            <th>Explicit</th>
+            <th>Genre</th>
+            <th>Language</th>
+        </tr>
+    <thead>
+
+    <tbody>
+        <% RSpotify:@songs.each do |song| %>
+            <tr>
+                <td><%= RSpotify:song.name %></td>
+                <td><%= RSpotify:song.artist %></td>
+                <td><%= RSpotify:song.release_date %></td>
+                <td><%= RSpotify:song.spotify_id %></td>
+                <td><%= RSpotify:song.explicit %></td>
+                <td><%= RSpotify:song.genre %></td>
+                <td><%= RSpotify:song.language %></td>
+                <td><%= link_to 'Add Song', new_playlist_song_path(@playlist, song), class: "btn btn-primary" %></td>
+                <td><%= button_to 'Delete Song', playlist_song_path(@playlist, song), method: :delete, class: "btn-btn-danger" %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
